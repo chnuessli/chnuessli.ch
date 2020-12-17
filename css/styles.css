@@ -6078,6 +6078,7 @@ a.close.disabled {
 
 .bg-primary {
   background-color: #0f1126 !important;
+  /*background-image: linear-gradient(to right, #1f234d, #0f1126);*/
 }
 
 a.bg-primary:hover, a.bg-primary:focus,
@@ -10083,7 +10084,7 @@ p.lead {
   margin-right: 0;
 }
 .social-icons .social-icon:hover {
-  background-color: #0087b8;
+  background-color: #f1b100;
 }
 
 .dev-icons {
@@ -10098,7 +10099,8 @@ section.resume-section {
   padding-top: 5rem;
   padding-bottom: 5rem;
   max-width: 75rem;
-  background-color: #0f1126;
+  /*background-color: #0f1126;*/
+  background-image: linear-gradient(to right, #0f1126, #1f234d);
   color: #fff
 }
 section.resume-section .resume-section-content {
