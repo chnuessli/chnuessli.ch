@@ -366,7 +366,7 @@ h1, h2, h3, h4, h5, h6,
   font-weight: 700;
   line-height: 1.2;
   color: #fff;
-  text-decoration: underline #0087b8;
+  text-decoration: underline #b88d00;
 }
 
 h1, .h1 {
@@ -6077,7 +6077,7 @@ a.close.disabled {
 }
 
 .bg-primary {
-  background-color: #000 !important;
+  background-color: #0f1126 !important;
 }
 
 a.bg-primary:hover, a.bg-primary:focus,
@@ -10098,7 +10098,7 @@ section.resume-section {
   padding-top: 5rem;
   padding-bottom: 5rem;
   max-width: 75rem;
-  background-color: #2a2b2b;
+  background-color: #0f1126;
   color: #fff
 }
 section.resume-section .resume-section-content {
