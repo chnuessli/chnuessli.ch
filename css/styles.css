@@ -10098,7 +10098,7 @@ section.resume-section {
   padding-right: 1rem;
   padding-top: 5rem;
   padding-bottom: 5rem;
-  max-width: 75rem;
+  max-width: 100%;
   /*background-color: #0f1126;*/
   background-image: linear-gradient(to right, #0f1126, #1f234d);
   color: #fff
