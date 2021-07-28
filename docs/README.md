@@ -10,10 +10,10 @@
 - 🌱 I’m currently learning Python, Javascript and Dataviz. 
 - 💬 Ask me about anything, mostly OSM.
 
-## Meine Projekte
+## My Projects
 
 
-## meine Arbeiten
+## My Works
 
 ### JOSM Manual
 
