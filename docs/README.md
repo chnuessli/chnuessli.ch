@@ -17,6 +17,5 @@
 
 ### JOSM Manual
 
-Ich habe für Openschoolmaps.ch eine JOSM Anleitung für Anfänger geschrieben. Die Anleitung gibt es in verschiedenen Formaten.
-
+I have written a JOSM guide for beginners for Openschoolmaps.ch. The instructions are available in different formats. You can read it here:
 - [JOSM Anleitung](josm_manual.md)
