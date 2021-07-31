@@ -1,5 +1,7 @@
 # **Christian Nüssli**
 
+<!--<img src="avatar.jpeg" alt="drawing" width="350" border-radius="20px">
+
 <!--
 **chnuessli/chnuessli** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
@@ -11,6 +13,19 @@
 - 💬 Ask me about anything, mostly OSM.
 
 ## My Projects
+
+### Defikarte.ch
+
+
+#### Webseite
+
+#### App
+
+### OpenStreetmap
+
+### Open Source Projekte
+
+#### WC-Guide
 
 
 ## My Works
