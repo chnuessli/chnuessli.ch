@@ -84,7 +84,7 @@ body {
   line-height: var(--bs-body-line-height);
   color: #ffffec;
   text-align: var(--bs-body-text-align);
-  background-color: #215E7C;
+  background-color: #1e252e;
   font-family: Roboto, sans-serif;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -7849,7 +7849,7 @@ textarea.form-control-lg {
 
 .bg-blue {
   --bs-bg-opacity: 1;
-  background: #215E7C;
+  background: #1e252e;
 }
 
 .bg-white {
@@ -11323,7 +11323,7 @@ header.masthead {
   overflow: hidden;
   padding-top: calc(7rem + 72px);
   padding-bottom: 7rem;
-  background: #215E7C;
+  background: #1e252e;
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: scroll;
