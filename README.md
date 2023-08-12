@@ -2,7 +2,7 @@
 **chnuessli/chnuessli** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
 -->
-![Me.png](https://github.com/chnuessli/chnuessli.ch/blob/main/assets/img/me.jpg)
+![Me.png](https://github.com/chnuessli/chnuessli.ch/blob/main/assets/img/logo.png)
 
 Hello, my name is Christian
 
