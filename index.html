@@ -1,34 +1,340 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Christian Nüssli</title>
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Font Awesome icons (free version)-->
-        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-        <!-- Google fonts-->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">  
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-    </head>
-    <body id="page-top">
-        <!-- Navigation-->
-        <!-- Header-->
-        <header class="masthead text-center text-white">
-            <div class="masthead-content">
-                <div class="container px-5">
-                    <img src="assets/img/logo.png" width="100%"" alt="Christian Nüssli" />
-                </div>
-            </div>
-        </header>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-    </body>
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Fotografie von Christian Nüssli.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#ffffff">
+  <meta property="og:title" content="Christian Nüssli">
+  <meta property="og:description" content="Fotografie von Christian Nüssli.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/images/boston-17.jpg">
+  <title>Christian Nüssli</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    /* Header refinement kept here intentionally so only index.html changes. */
+    .site-header {
+      height: 60px;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand {
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: -.025em;
+    }
+
+    .theme-toggle {
+      appearance: none;
+      width: 54px;
+      height: 28px;
+      flex: 0 0 auto;
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      justify-items: center;
+      padding: 0 3px;
+      border: 1px solid var(--hairline);
+      border-radius: 999px;
+      background: transparent;
+      color: var(--fg);
+      cursor: pointer;
+      transition: border-color .16s ease, opacity .16s ease;
+    }
+    .theme-toggle::before {
+      content: "";
+      position: absolute;
+      z-index: 0;
+      top: 3px;
+      left: 3px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--fg);
+      transition: transform .2s cubic-bezier(.22,.61,.36,1), background-color .16s ease;
+    }
+    :root[data-theme="dark"] .theme-toggle::before {
+      transform: translateX(26px);
+    }
+    .theme-icon {
+      position: relative;
+      z-index: 1;
+      width: 13px;
+      height: 13px;
+      display: block;
+      transition: color .16s ease, opacity .16s ease;
+    }
+    .theme-icon svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.65;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .theme-icon--sun { color: var(--bg); }
+    .theme-icon--moon { color: var(--fg); opacity: .7; }
+    :root[data-theme="dark"] .theme-icon--sun { color: var(--fg); opacity: .72; }
+    :root[data-theme="dark"] .theme-icon--moon { color: var(--bg); opacity: 1; }
+    .theme-toggle:hover { opacity: .62; }
+    .theme-toggle:focus-visible { outline: 1px solid var(--fg); outline-offset: 4px; }
+
+    /* With the former intro removed, the photographs begin almost directly below the header. */
+    .gallery { margin-top: 8px; }
+
+    .site-footer {
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      min-height: 104px;
+      padding-top: 32px;
+    }
+    .copyright { justify-self: start; color: var(--muted); }
+    .menu-button { justify-self: end; }
+
+    @media (max-width: 700px) {
+      .site-header { height: 56px; }
+      .brand { font-size: 15px; }
+      .gallery { margin-top: 4px; }
+      .site-footer {
+        grid-template-columns: 1fr auto;
+        grid-template-areas: "copyright menu";
+        min-height: 100px;
+        row-gap: 0;
+        padding-top: 30px;
+      }
+      .copyright { grid-area: copyright; align-self: center; }
+      .menu-button { grid-area: menu; align-self: center; }
+    }
+  </style>
+</head>
+<body id="top">
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Christian Nüssli – nach oben">Christian Nüssli</a>
+    <button class="theme-toggle" type="button" aria-label="Dunkelmodus aktivieren" aria-pressed="false" title="Hell / Dunkel">
+      <span class="theme-icon theme-icon--sun" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.5"></circle><path d="M12 2.5v3M12 18.5v3M4.5 12h-3M22.5 12h-3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M18.7 5.3l-2.1 2.1M7.4 16.6l-2.1 2.1"></path></svg>
+      </span>
+      <span class="theme-icon theme-icon--moon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M19.2 15.1A7.6 7.6 0 0 1 8.9 4.8 7.6 7.6 0 1 0 19.2 15.1Z"></path></svg>
+      </span>
+    </button>
+  </header>
+
+  <main>
+    <section class="gallery" aria-label="Fotografie-Portfolio">
+      <button class="gallery-item" type="button" data-full="assets/full/boston-17.jpg" data-ratio="1.499268" aria-label="Bild 1 von 53 öffnen">
+        <img src="assets/images/boston-17.jpg" alt="Boston 17 – Fotografie von Christian Nüssli" width="1024" height="683" loading="eager" decoding="async" fetchpriority="high">
+      </button>
+      <button class="gallery-item" type="button" data-full="assets/full/boston-56.jpg" data-ratio="1.499268" aria-label="Bild 2 von 53 öffnen">
+        <img src="assets/images/boston-56.jpg" alt="Boston 56 – Fotografie von Christian Nüssli" width="1024" height="683" loading="eager" decoding="async" fetchpriority="high">
+      </button>
+      <button class="gallery-item" type="button" data-full="assets/full/boston-61.jpg" data-ratio="1.499268" aria-label="Bild 3 von 53 öffnen">
+        <img src="assets/images/boston-61.jpg" alt="Boston 61 – Fotografie von Christian Nüssli" width="1024" height="683" loading="eager" decoding="async" fetchpriority="high">
+      </button>
+      <button class="gallery-item" type="button" data-full="assets/full/boston-5.jpg" data-ratio="0.666992" aria-label="Bild 4 von 53 öffnen">
+        <img src="assets/images/boston-5.jpg" alt="Boston 5 – Fotografie von Christian Nüssli" width="683" height="1024" loading="eager" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-full="assets/full/bc-kanada7.jpg" data-ratio="1.499268" aria-label="Bild 5 von 53 öffnen">
+        <img src="assets/images/bc-kanada7.jpg" alt="BC Kanada7 – Fotografie von Christian Nüssli" width="1024" height="683" loading="eager" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-full="assets/full/bc-kanada36.jpg" data-ratio="1.499268" aria-label="Bild 6 von 53 öffnen">
+        <img src="assets/images/bc-kanada36.jpg" alt="BC Kanada36 – Fotografie von Christian Nüssli" width="1024" height="683" loading="eager" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-full="assets/full/bc-kanada48.jpg" data-ratio="0.666992" aria-label="Bild 7 von 53 öffnen">
+        <img src="assets/images/bc-kanada48.jpg" alt="BC Kanada48 – Fotografie von Christian Nüssli" width="683" height="1024" loading="eager" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-full="assets/full/pistenbully-reportage-9.jpg" data-ratio="1.499268" aria-label="Bild 8 von 53 öffnen">
+        <img src="assets/images/pistenbully-reportage-9.jpg" alt="PistenBully Reportage 9 – Fotografie von Christian Nüssli" width="1024" height="683" loading="eager" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-full="assets/full/pistenbully-reportage-15.jpg" data-ratio="1.499268" aria-label="Bild 9 von 53 öffnen">
+        <img src="assets/images/pistenbully-reportage-15.jpg" alt="PistenBully Reportage 15 – Fotografie von Christian Nüssli" width="1024" height="683" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-full="assets/full/skicross-worldcup-arosa-7.jpg" data-ratio="1.499268" aria-label="Bild 10 von 53 öffnen">
+        <img src="assets/images/skicross-worldcup-arosa-7.jpg" alt="SkiCross WorldCup Arosa 7 – Fotografie von Christian Nüssli" width="1024" height="683" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-full="assets/full/skicross-worldcup-arosa-12.jpg" data-ratio="1.499268" aria-label="Bild 11 von 53 öffnen">
+        <img src="assets/images/skicross-worldcup-arosa-12.jpg" alt="SkiCross WorldCup Arosa 12 – Fotografie von Christian Nüssli" width="1024" height="683" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-full="assets/full/skicross-worldcup-arosa-19.jpg" data-ratio="1.499268" aria-label="Bild 12 von 53 öffnen">
+        <img src="assets/images/skicross-worldcup-arosa-19.jpg" alt="SkiCross WorldCup Arosa 19 – Fotografie von Christian Nüssli" width="1024" height="683" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-full="assets/full/streetfood-festival-zurich-38.jpg" data-ratio="0.666992" aria-label="Bild 13 von 53 öffnen">
+        <img src="assets/images/streetfood-festival-zurich-38.jpg" alt="Streetfood Festival Zurich 38 – Fotografie von Christian Nüssli" width="683" height="1024" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-full="assets/full/streetfood-festival-zurich-44.jpg" data-ratio="0.666992" aria-label="Bild 14 von 53 öffnen">
+        <img src="assets/images/streetfood-festival-zurich-44.jpg" alt="Streetfood Festival Zurich 44 – Fotografie von Christian Nüssli" width="683" height="1024" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-full="assets/full/streedfood-festival-dolder22.jpg" data-ratio="1.499268" aria-label="Bild 15 von 53 öffnen">
+        <img src="assets/images/streedfood-festival-dolder22.jpg" alt="Streetfood Festival Dolder22 – Fotografie von Christian Nüssli" width="1024" height="683" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-full="assets/full/californiastreet.jpg" data-ratio="1.499268" aria-label="Bild 16 von 53 öffnen">
+        <img src="assets/images/californiastreet.jpg" alt="CaliforniaStreet – Fotografie von Christian Nüssli" width="1024" height="683" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-full="assets/full/sunrisesf.jpg" data-ratio="1.499268" aria-label="Bild 17 von 53 öffnen">
+        <img src="assets/images/sunrisesf.jpg" alt="SunriseSF – Fotografie von Christian Nüssli" width="1024" height="683" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-full="assets/full/x-003.jpg" data-ratio="1.499268" aria-label="Bild 18 von 53 öffnen">
+        <img src="assets/images/x-003.jpg" alt="X 003 – Fotografie von Christian Nüssli" width="1024" height="683" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-full="assets/full/tba-race98.jpg" data-ratio="1.499268" aria-label="Bild 19 von 53 öffnen">
+        <img src="assets/images/tba-race98.jpg" alt="TBA Race98 – Fotografie von Christian Nüssli" width="1024" height="683" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-full="assets/full/london43.jpg" data-ratio="1.499268" aria-label="Bild 20 von 53 öffnen">
+        <img src="assets/images/london43.jpg" alt="London43 – Fotografie von Christian Nüssli" width="1024" height="683" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-full="assets/full/london64.jpg" data-ratio="1.499268" aria-label="Bild 21 von 53 öffnen">
+        <img src="assets/images/london64.jpg" alt="London64 – Fotografie von Christian Nüssli" width="1024" height="683" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-full="assets/full/london71.jpg" data-ratio="0.666992" aria-label="Bild 22 von 53 öffnen">
+        <img src="assets/images/london71.jpg" alt="London71 – Fotografie von Christian Nüssli" width="683" height="1024" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-full="assets/full/london143.jpg" data-ratio="1.499268" aria-label="Bild 23 von 53 öffnen">
+        <img src="assets/images/london143.jpg" alt="London143 – Fotografie von Christian Nüssli" width="1024" height="683" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-full="assets/full/london166.jpg" data-ratio="1.499268" aria-label="Bild 24 von 53 öffnen">
+        <img src="assets/images/london166.jpg" alt="London166 – Fotografie von Christian Nüssli" width="1024" height="683" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-full="assets/full/london218.jpg" data-ratio="1.499268" aria-label="Bild 25 von 53 öffnen">
+        <img src="assets/images/london218.jpg" alt="London218 – Fotografie von Christian Nüssli" width="1024" height="683" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-full="assets/full/freeski-open-laax15.jpg" data-ratio="1.499268" aria-label="Bild 26 von 53 öffnen">
+        <img src="assets/images/freeski-open-laax15.jpg" alt="Freeski Open Laax15 – Fotografie von Christian Nüssli" width="1024" height="683" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-full="assets/full/freeski-open-laax19.jpg" data-ratio="1.499268" aria-label="Bild 27 von 53 öffnen">
+        <img src="assets/images/freeski-open-laax19.jpg" alt="Freeski Open Laax19 – Fotografie von Christian Nüssli" width="1024" height="683" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-full="assets/full/freeski-open-laax108.jpg" data-ratio="1.499268" aria-label="Bild 28 von 53 öffnen">
+        <img src="assets/images/freeski-open-laax108.jpg" alt="Freeski Open Laax108 – Fotografie von Christian Nüssli" width="1024" height="683" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-full="assets/full/berlin-9.jpg" data-ratio="1.499268" aria-label="Bild 29 von 53 öffnen">
+        <img src="assets/images/berlin-9.jpg" alt="Berlin 9 – Fotografie von Christian Nüssli" width="1024" height="683" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-full="assets/full/bc-5.jpg" data-ratio="0.666992" aria-label="Bild 30 von 53 öffnen">
+        <img src="assets/images/bc-5.jpg" alt="BC 5 – Fotografie von Christian Nüssli" width="683" height="1024" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-full="assets/full/bc-8.jpg" data-ratio="0.666992" aria-label="Bild 31 von 53 öffnen">
+        <img src="assets/images/bc-8.jpg" alt="BC 8 – Fotografie von Christian Nüssli" width="683" height="1024" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-full="assets/full/bc-10.jpg" data-ratio="1.499268" aria-label="Bild 32 von 53 öffnen">
+        <img src="assets/images/bc-10.jpg" alt="BC 10 – Fotografie von Christian Nüssli" width="1024" height="683" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-full="assets/full/bc-13.jpg" data-ratio="1.499268" aria-label="Bild 33 von 53 öffnen">
+        <img src="assets/images/bc-13.jpg" alt="BC 13 – Fotografie von Christian Nüssli" width="1024" height="683" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-full="assets/full/bc-17.jpg" data-ratio="1.499268" aria-label="Bild 34 von 53 öffnen">
+        <img src="assets/images/bc-17.jpg" alt="BC 17 – Fotografie von Christian Nüssli" width="1024" height="683" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-full="assets/full/bc-22.jpg" data-ratio="1.499268" aria-label="Bild 35 von 53 öffnen">
+        <img src="assets/images/bc-22.jpg" alt="BC 22 – Fotografie von Christian Nüssli" width="1024" height="683" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-full="assets/full/bc-26.jpg" data-ratio="1.499268" aria-label="Bild 36 von 53 öffnen">
+        <img src="assets/images/bc-26.jpg" alt="BC 26 – Fotografie von Christian Nüssli" width="1024" height="683" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-full="assets/full/bc-27.jpg" data-ratio="0.666992" aria-label="Bild 37 von 53 öffnen">
+        <img src="assets/images/bc-27.jpg" alt="BC 27 – Fotografie von Christian Nüssli" width="683" height="1024" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-full="assets/full/bc-35.jpg" data-ratio="1.499268" aria-label="Bild 38 von 53 öffnen">
+        <img src="assets/images/bc-35.jpg" alt="BC 35 – Fotografie von Christian Nüssli" width="1024" height="683" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-full="assets/full/vancouver-2.jpg" data-ratio="1.499268" aria-label="Bild 39 von 53 öffnen">
+        <img src="assets/images/vancouver-2.jpg" alt="Vancouver 2 – Fotografie von Christian Nüssli" width="1024" height="683" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-full="assets/full/vancouver-6.jpg" data-ratio="1.499268" aria-label="Bild 40 von 53 öffnen">
+        <img src="assets/images/vancouver-6.jpg" alt="Vancouver 6 – Fotografie von Christian Nüssli" width="1024" height="683" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-full="assets/full/vanisland-10.jpg" data-ratio="1.499268" aria-label="Bild 41 von 53 öffnen">
+        <img src="assets/images/vanisland-10.jpg" alt="VanIsland 10 – Fotografie von Christian Nüssli" width="1024" height="683" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-full="assets/full/vanisland-11.jpg" data-ratio="1.499268" aria-label="Bild 42 von 53 öffnen">
+        <img src="assets/images/vanisland-11.jpg" alt="VanIsland 11 – Fotografie von Christian Nüssli" width="1024" height="683" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-full="assets/full/vanisland-21.jpg" data-ratio="1.499268" aria-label="Bild 43 von 53 öffnen">
+        <img src="assets/images/vanisland-21.jpg" alt="VanIsland 21 – Fotografie von Christian Nüssli" width="1024" height="683" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-full="assets/full/vanisland-26.jpg" data-ratio="1.499268" aria-label="Bild 44 von 53 öffnen">
+        <img src="assets/images/vanisland-26.jpg" alt="VanIsland 26 – Fotografie von Christian Nüssli" width="1024" height="683" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-full="assets/full/malta-6.jpg" data-ratio="0.666992" aria-label="Bild 45 von 53 öffnen">
+        <img src="assets/images/malta-6.jpg" alt="Malta 6 – Fotografie von Christian Nüssli" width="683" height="1024" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-full="assets/full/hawaii-6.jpg" data-ratio="1.499268" aria-label="Bild 46 von 53 öffnen">
+        <img src="assets/images/hawaii-6.jpg" alt="Hawaii 6 – Fotografie von Christian Nüssli" width="1024" height="683" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-full="assets/full/hawaii-8.jpg" data-ratio="0.666992" aria-label="Bild 47 von 53 öffnen">
+        <img src="assets/images/hawaii-8.jpg" alt="Hawaii 8 – Fotografie von Christian Nüssli" width="683" height="1024" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-full="assets/full/hawaii-12.jpg" data-ratio="1.499268" aria-label="Bild 48 von 53 öffnen">
+        <img src="assets/images/hawaii-12.jpg" alt="Hawaii 12 – Fotografie von Christian Nüssli" width="1024" height="683" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-full="assets/full/hawaii-23.jpg" data-ratio="1.499268" aria-label="Bild 49 von 53 öffnen">
+        <img src="assets/images/hawaii-23.jpg" alt="Hawaii 23 – Fotografie von Christian Nüssli" width="1024" height="683" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-full="assets/full/hawaii-31.jpg" data-ratio="1.499268" aria-label="Bild 50 von 53 öffnen">
+        <img src="assets/images/hawaii-31.jpg" alt="Hawaii 31 – Fotografie von Christian Nüssli" width="1024" height="683" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-full="assets/full/hawaii-38.jpg" data-ratio="0.666992" aria-label="Bild 51 von 53 öffnen">
+        <img src="assets/images/hawaii-38.jpg" alt="Hawaii 38 – Fotografie von Christian Nüssli" width="683" height="1024" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-full="assets/full/hawaii-52.jpg" data-ratio="1.499268" aria-label="Bild 52 von 53 öffnen">
+        <img src="assets/images/hawaii-52.jpg" alt="Hawaii 52 – Fotografie von Christian Nüssli" width="1024" height="683" loading="lazy" decoding="async">
+      </button>
+      <button class="gallery-item" type="button" data-full="assets/full/hawaii-57.jpg" data-ratio="1.499268" aria-label="Bild 53 von 53 öffnen">
+        <img src="assets/images/hawaii-57.jpg" alt="Hawaii 57 – Fotografie von Christian Nüssli" width="1024" height="683" loading="lazy" decoding="async">
+      </button>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span class="copyright">© Christian Nüssli</span>
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-menu">Menü</button>
+  </footer>
+
+  <div class="menu-panel" id="site-menu" aria-hidden="true">
+    <div class="menu-panel-inner">
+      <a href="#top" data-menu-link>Start</a>
+      <a href=".gallery" data-scroll-gallery>Fotografie</a>
+      <button type="button" class="menu-close">Schliessen</button>
+    </div>
+  </div>
+
+  <div class="lightbox" role="dialog" aria-modal="true" aria-label="Vollbildansicht" aria-hidden="true">
+    <div class="lightbox-topbar">
+      <span class="lightbox-count" aria-live="polite"></span>
+      <button class="lightbox-close" type="button" aria-label="Vollbildansicht schliessen">Schliessen</button>
+    </div>
+    <button class="lightbox-hit lightbox-prev" type="button" aria-label="Vorheriges Bild"><span>←</span></button>
+    <figure class="lightbox-stage"><img alt=""></figure>
+    <button class="lightbox-hit lightbox-next" type="button" aria-label="Nächstes Bild"><span>→</span></button>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    (() => {
+      const root = document.documentElement;
+      const toggle = document.querySelector('.theme-toggle');
+      const themeMeta = document.querySelector('meta[name="theme-color"]');
+      if (!toggle) return;
+
+      const syncToggle = () => {
+        const isDark = root.dataset.theme === 'dark';
+        toggle.setAttribute('aria-pressed', String(isDark));
+        toggle.setAttribute('aria-label', isDark ? 'Hellmodus aktivieren' : 'Dunkelmodus aktivieren');
+      };
+
+      toggle.addEventListener('click', () => {
+        const theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+        root.dataset.theme = theme;
+        localStorage.setItem('theme', theme);
+        if (themeMeta) themeMeta.content = theme === 'dark' ? '#0d0d0d' : '#ffffff';
+        syncToggle();
+      });
+
+      syncToggle();
+    })();
+  </script>
+</body>
 </html>
